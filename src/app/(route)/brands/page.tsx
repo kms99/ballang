@@ -1,6 +1,5 @@
-import React from "react";
+import React from 'react'
 
 export default function Brands() {
-  console.log("hni1");
-  return <div>브랜드</div>;
+  return <div>브랜드</div>
 }
