@@ -8,11 +8,33 @@ import HeaderNavListInnerContainer from './HeaderNavListInnerContainer'
 import HeaderNavItem from './HeaderNavItem'
 
 export default function HeaderNavList() {
+  // test fake state
   const isLogin = false
 
+  // mobile vers nav hamburg button state
   const [isOpen, setIsOpen] = useState<boolean>(false)
-
   const handleToggleNav = () => setIsOpen((prev) => !prev)
+
+  // authentication button handler
+  // TODO: 각 이벤트 처리 필요
+  const openSignInModalHandler = () => {
+    console.log('로그인')
+  }
+
+  const signOutHandler = () => {
+    console.log('로그아웃')
+  }
+
+  // 이벤트 버블링을 이용한 클릭 처리
+  const handleBubbleCheck = (e: React.MouseEvent<HTMLUListElement>) => {
+    const target = e.target as HTMLButtonElement
+
+    if (target.tagName !== 'A' && target.tagName !== 'BUTTON') return
+
+    if (target.id === 'sign-in') openSignInModalHandler()
+    if (target.id === 'sign-out') signOutHandler()
+    handleToggleNav()
+  }
 
   return (
     <nav className="w-full sm:w-fit">
@@ -27,6 +49,7 @@ export default function HeaderNavList() {
         className={`relative flex justify-between sm-nav ${
           isOpen ? 'sm:h-28' : 'sm:h-0'
         }`}
+        onClick={handleBubbleCheck}
       >
         {NAV_ITEM_GROUPS.map((group) => (
           <HeaderNavListInnerContainer key={group.key}>
