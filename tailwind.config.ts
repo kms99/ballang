@@ -7,7 +7,19 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    screens: {
+      sm: { min: '0px', max: '767px' },
+      // => @media (min-width: 640px) { ... }
+
+      md: { min: '768px', max: '1279px' },
+      // => @media (min-width: 1024px) { ... }
+
+      lg: { min: '1280' },
+      // => @media (min-width: 1280px) { ... }
+    },
+    transitionProperty: {
+      height: 'height',
+    },
   },
   plugins: [],
 }

@@ -10,7 +10,7 @@ export default function HeaderNavItem({
   return (
     <li
       {...props}
-      className="text-[0.938rem] font-medium text-gray-800 [&:hover]:text-black transition "
+      className="text-[0.938rem] sm:w-full font-medium text-gray-800 [&:hover]:text-black transition "
     >
       {children}
     </li>
