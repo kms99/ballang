@@ -19,6 +19,7 @@ const config: Config = {
     },
     transitionProperty: {
       height: 'height',
+      transform: 'transform',
     },
   },
   plugins: [],
